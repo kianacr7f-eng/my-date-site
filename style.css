@@ -1,0 +1,294 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    font-family: Arial, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #ffe0e8,
+        #fff5f7
+    );
+
+    color: #333;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 550px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.12);
+
+    text-align: center;
+}
+
+
+/* نوار مراحل */
+
+.progress {
+    display: flex;
+    gap: 8px;
+
+    margin-bottom: 30px;
+}
+
+
+.progress span {
+    height: 6px;
+
+    flex: 1;
+
+    background: #eeeeee;
+
+    border-radius: 10px;
+}
+
+
+.progress span.active {
+    background: #ff6b81;
+}
+
+
+/* مراحل */
+
+.step {
+    display: none;
+}
+
+
+.step.active {
+    display: block;
+}
+
+
+/* متن */
+
+.emoji {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+
+h1 {
+    font-size: 28px;
+
+    margin-bottom: 15px;
+
+    color: #333;
+}
+
+
+p {
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+
+    color: #666;
+}
+
+
+/* دکمه‌ها */
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+button {
+    border: none;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition: 0.2s;
+}
+
+
+button:hover {
+    transform: scale(1.03);
+}
+
+
+.yes,
+.no,
+.next {
+    padding: 13px 28px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+}
+
+
+.yes {
+    background: #ff6b81;
+
+    color: white;
+}
+
+
+.no {
+    background: #eeeeee;
+
+    color: #555;
+
+    position: relative;
+}
+
+
+.next {
+    width: 100%;
+
+    margin-top: 20px;
+
+    background: #ff6b81;
+
+    color: white;
+}
+
+
+.back {
+    margin-top: 15px;
+
+    background: transparent;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+
+/* ورودی‌ها */
+
+.input-group {
+    text-align: right;
+
+    margin-bottom: 18px;
+}
+
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 15px;
+
+    color: #555;
+}
+
+
+.input-group input {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+.input-group input:focus {
+    border-color: #ff6b81;
+}
+
+
+/* انتخاب غذا */
+
+.food-list {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+
+.food {
+    padding: 16px 10px;
+
+    background: #fff1f4;
+
+    border: 2px solid transparent;
+
+    border-radius: 14px;
+
+    font-size: 16px;
+
+    color: #444;
+}
+
+
+.food.selected {
+    border-color: #ff6b81;
+
+    background: #ffe0e7;
+}
+
+
+/* مرحله آخر */
+
+.final-heart {
+    font-size: 70px;
+
+    margin: 10px 0 20px;
+}
+
+
+.final-text {
+    color: #ff6b81;
+
+    font-weight: bold;
+}
+
+
+/* موبایل */
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 22px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .food-list {
+        grid-template-columns: 1fr;
+    }
+
+}
