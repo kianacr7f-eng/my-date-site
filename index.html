@@ -1,177 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>قرار ما ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
+      <!-- نوار مراحل -->
+      <div class="progress">
+        <span id="progress1" class="active"></span>
+        <span id="progress2"></span>
+        <span id="progress3"></span>
+        <span id="progress4"></span>
+      </div>
 
-        <!-- نوار مراحل -->
-        <div class="progress">
-            <span id="progress1" class="active"></span>
-            <span id="progress2"></span>
-            <span id="progress3"></span>
-            <span id="progress4"></span>
+      <!-- مرحله اول -->
+      <section id="step1" class="step active">
+        <div class="emoji">❤️</div>
+
+        <h1>یه قرار بریم؟</h1>
+
+        <p>یه قرار کوچیک و قشنگ فقط برای خودمون...</p>
+
+        <div class="buttons">
+          <button class="yes" onclick="nextStep(2)">آره ❤️</button>
+
+          <button class="no" onclick="moveNoButton(this)">
+            نه 😐 (کیانا خانوم میکشتت🔪)
+          </button>
+        </div>
+      </section>
+
+      <!-- مرحله دوم -->
+      <section id="step2" class="step">
+        <div class="emoji">📅</div>
+
+        <h1>پس بریم مرحله بعد!</h1>
+
+        <p>کی برات مناسبه؟</p>
+
+        <div class="input-group">
+          <label for="date"> تاریخ قرار </label>
+
+          <input type="date" id="date" />
         </div>
 
+        <div class="input-group">
+          <label for="time"> ساعت قرار </label>
 
-        <!-- مرحله اول -->
-        <section id="step1" class="step active">
+          <input type="time" id="time" />
+        </div>
 
-            <div class="emoji">❤️</div>
+        <button class="next" onclick="saveDate()">ادامه ❤️</button>
 
-            <h1>یه قرار بریم؟</h1>
+        <button class="back" onclick="nextStep(1)">برگشت</button>
+      </section>
 
-            <p>
-                یه قرار کوچیک و قشنگ فقط برای خودمون...
-            </p>
+      <!-- مرحله سوم -->
+      <section id="step3" class="step">
+        <div class="emoji">🍕</div>
 
-            <div class="buttons">
+        <h1>حالا مهم‌ترین قسمت!</h1>
 
-                <button class="yes" onclick="nextStep(2)">
-                    آره ❤️
-                </button>
+        <p>چی بخوریم؟ 😋</p>
 
-                <button class="no" onclick="moveNoButton(this)">
-                    نه 😐 (کیانا خانوم میکشتت🔪)
-                </button>
+        <div class="food-list">
+          <button class="food" onclick="selectFood(this, '🧋شیک')">
+            🧋شیک
+          </button>
 
-            </div>
+          <button class="food" onclick="selectFood(this, 'سیب زمینی🍟')">
+            🍟سیب زمینی
+          </button>
 
-        </section>
+          <button class="food" onclick="selectFood(this, 'کیانا🎀')">
+            کیانا🎀
+          </button>
 
+          <button class="food" onclick="selectFood(this, 'کیک🧁')">
+            کیک🧁
+          </button>
+        </div>
 
-        <!-- مرحله دوم -->
-        <section id="step2" class="step">
+        <button class="next" onclick="finish()">ثبت قرار ❤️</button>
 
-            <div class="emoji">📅</div>
+        <button class="back" onclick="nextStep(2)">برگشت</button>
+      </section>
 
-            <h1>پس بریم مرحله بعد!</h1>
+      <!-- مرحله چهارم -->
+      <section id="step4" class="step">
+        <div class="emoji">🥰</div>
 
-            <p>کی برات مناسبه؟</p>
+        <h1>قرارمون ثبت شد!</h1>
 
-            <div class="input-group">
+        <p id="result"></p>
 
-                <label for="date">
-                    تاریخ قرار
-                </label>
+        <div class="final-heart">❤️</div>
 
-                <input
-                    type="date"
-                    id="date"
-                >
-
-            </div>
-
-
-            <div class="input-group">
-
-                <label for="time">
-                    ساعت قرار
-                </label>
-
-                <input
-                    type="time"
-                    id="time"
-                >
-
-            </div>
-
-
-            <button class="next" onclick="saveDate()">
-                ادامه ❤️
-            </button>
-
-            <button class="back" onclick="nextStep(1)">
-                برگشت
-            </button>
-
-        </section>
-
-
-        <!-- مرحله سوم -->
-        <section id="step3" class="step">
-
-            <div class="emoji">🍕</div>
-
-            <h1>حالا مهم‌ترین قسمت!</h1>
-
-            <p>چی بخوریم؟ 😋</p>
-
-
-            <div class="food-list">
-
-                <button
-                    class="food"
-                    onclick="selectFood(this, '🧋شیک')"
-                >
-                🧋شیک               
-             </button>
-
-                <button
-                    class="food"
-                    onclick="selectFood(this, 'سیب زمینی🍟')"
-                >
-                    🍟سیب زمینی
-                </button>
-
-                <button
-                    class="food"
-                    onclick="selectFood(this, 'کیانا🎀')"
-                >
-                    کیانا🎀
-                </button>
-
-                <button
-                    class="food"
-                    onclick="selectFood(this, 'کیک🧁')"
-                >
-                    کیک🧁
-                </button>
-
-            </div>
-
-
-            <button class="next" onclick="finish()">
-                ثبت قرار ❤️
-            </button>
-
-            <button class="back" onclick="nextStep(2)">
-                برگشت
-            </button>
-
-        </section>
-
-
-        <!-- مرحله چهارم -->
-        <section id="step4" class="step">
-
-            <div class="emoji">🥰</div>
-
-            <h1>قرارمون ثبت شد!</h1>
-
-            <p id="result"></p>
-
-            <div class="final-heart">
-                ❤️
-            </div>
-
-            <p class="final-text">
-                میبینمت فرفریم:)
-            </p>
-
-        </section>
-
+        <p class="final-text">میبینمت نانا:)</p>
+      </section>
     </div>
 
-
     <script src="script.js"></script>
-
-</body>
+  </body>
 </html>
